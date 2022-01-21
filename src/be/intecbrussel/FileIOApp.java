@@ -26,12 +26,13 @@ public class FileIOApp {
             // String stringPath = path.toString();
             //  int indexOfTxt = stringPath.indexOf("txt");
             try {
-                Path directoryPath = Paths.get("C:/Users/uzair/Downloads/sorted");
-                if (Files.notExists(directoryPath)) {
+                Path directoryPath = Paths.get("C:/assignment/file_io/sorted");
+               // if (Files.notExists(directoryPath)) {
                     Files.createDirectories(directoryPath);
-                }
+               // }
 
-                Files.move(path, directoryPath, StandardCopyOption.ATOMIC_MOVE);
+                Path newPath = directoryPath.resolve(path.getFileName());
+                Files.move(path, newPath, StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("file is added to this folder");
 
             } catch (IOException | DirectoryIteratorException ex) {
