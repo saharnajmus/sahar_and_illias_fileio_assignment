@@ -21,62 +21,57 @@ public class FileIOApp {
     }
 
     private static void createDirectoryForTextFiles(Path path) {
-        if (path.toString().endsWith(".txt")) {
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/txt");
-            createDirectory(path,directoryPath);
+        Path fileName = path.getFileName();
+        if(fileName.toString().lastIndexOf(".") < 0  ){
+            return;
         }
-        else if(path.toString().endsWith(".png")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/png");
-            createDirectory(path,directoryPath);
+        String extension = path.getFileName().toString().substring(fileName.toString().lastIndexOf("."));
+        switch (extension) {
+            case ".txt":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/txt"));
+                break;
+            case ".png":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/png"));
+                break;
+            case ".gif":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/gif"));
+                break;
+            case ".jpg":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/jpg"));
+                break;
+            case ".csv":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/csv"));
+                break;
+            case ".exe":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/exe"));
+                break;
+            case ".pdf":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/pdf"));
+                break;
+            case ".json":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/json"));
+                break;
+            case ".wma":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/wma"));
+                break;
+            case ".gitignore":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/gitignore"));
+                break;
+            case ".zip":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/zip"));
+                break;
+            case ".sqlite3":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/sqlite3"));
+                break;
+            case ".py":
+                createDirectory(path, Paths.get("C:/assignment/file_io/sorted/py"));
+                break;
+            default:
+                System.out.println("Error " + extension);
         }
-        else if(path.toString().endsWith(".gif")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/gif");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".jpg")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/jpg");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".csv")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/csv");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".exe")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/exe");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".pdf")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/pdf");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".json")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/json");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".wma")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/wma");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".gitignore")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/gitignore");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".zip")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/zip");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".sqlite3")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/sqlite3");
-            createDirectory(path,directoryPath);
-        }
-        else if(path.toString().endsWith(".py")){
-            Path directoryPath = Paths.get("C:/assignment/file_io/sorted/py");
-            createDirectory(path,directoryPath);
-        }
-
-
-
     }
+
+
     private static void createDirectory(Path path, Path directoryPath){
         try {
             // if (Files.notExists(directoryPath)) {
@@ -91,6 +86,12 @@ public class FileIOApp {
             ex.printStackTrace();
         }
 
+    }
+
+    private static void moveContentOfMagazine(){
+        Path path = Paths.get("C:/Users/uzair/Downloads/unsorted/unsorted/magazine's");
+        Path directoryPath = Paths.get("C:/assignment/file_io/sorted/png/magazine's");
+       // Files.createDirectories();
     }
 
     }
