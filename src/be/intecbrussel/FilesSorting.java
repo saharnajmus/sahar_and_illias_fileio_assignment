@@ -79,8 +79,8 @@ public class FilesSorting {
     private static void move(Path path) {
 
         String extension = path.getFileName().toString().substring(path.getFileName().toString()
-                .lastIndexOf(".")).replace(".","");
-        createDirectory(path, Paths.get(TARGET_DIR + extension),extension);
+                .lastIndexOf(".")).replace(".", "");
+        createDirectory(path, Paths.get(TARGET_DIR + extension), extension);
 
     }
 
@@ -103,11 +103,11 @@ public class FilesSorting {
             Files.createDirectories(directoryPath);
             Path newPath = directoryPath.resolve(path.getFileName());
             Files.move(path, newPath, StandardCopyOption.REPLACE_EXISTING);
-            if (Files.isHidden(newPath)){
-                prepare(newPath,"hidden");
-            }else{
-                prepare(newPath, extension);
+            if (Files.isHidden(newPath)) {
+                prepare(newPath, "hidden");
             }
+                prepare(newPath, extension);
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
